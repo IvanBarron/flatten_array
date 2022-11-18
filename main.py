@@ -42,12 +42,8 @@ def flatten_array(array: list[Union[int, list]]) -> list[int]:
     result: list = []
     if not type(array) is list:
         raise ValueError("Array argumnet must be a list")
+        
+    get_flatten_array(array, result)
     
-    return get_flatten_array(array, result)
+    return result
 
-if __name__ == '__main__':
-    """ Main flow """
-
-    lista = [[1,2],3,[4,5,[6,[7,8]],9,[10,11]]]
-    result = flatten_array(lista)
-    print()

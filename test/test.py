@@ -12,3 +12,7 @@ class TestFlattenArray(unittest.TestCase):
         self.assertEqual(functions.flatten_array(test_array), [1,2,3,4,5,6,7,8,9,10,11])
         test_array_2 = [[1,[2,[3,[4,[5]]]]]]
         self.assertEqual(functions.flatten_array(test_array_2), [1,2,3,4,5])
+
+    def test_empty_input(self):
+      test_array = []
+      self.assertEqual(functions.flatten_array(test_array), [])

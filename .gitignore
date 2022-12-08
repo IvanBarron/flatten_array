@@ -4,4 +4,7 @@ __pycache__/
 
 
 env/
+venv/*
+replit*
+*.replit
 .vscode/

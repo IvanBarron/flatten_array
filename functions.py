@@ -1,9 +1,13 @@
 """ functions """
 
-from typing import Union
+from typing import List, Union
 
-def get_flatten_array(array: list[Union[int, list]], result: list):
-    """ Flatten array 2D Array to 1D Array
+
+def get_flatten_array(
+              array: List[Union[list,int]],
+              result: List[int]
+    ) -> None:
+  """ Flatten array 2D Array to 1D Array
 
     Parameters
     ----------
@@ -18,15 +22,15 @@ def get_flatten_array(array: list[Union[int, list]], result: list):
 
     """
 
-    for item in array:
-        if type(item) is list:
-            get_flatten_array(item, result)
-        else:
-            result.append(item)
+  for item in array:
+    if type(item) is list:
+      get_flatten_array(item, result)
+    else:
+      result.append(item)
 
 
-def flatten_array(array: list[Union[int, list]]) -> list[int]:
-    """ Proxy function to invoke get_flatten_array
+def flatten_array(array:List[Union[List,int]]) -> List:
+  """ Proxy function to invoke get_flatten_array
 
     Parameters
     ----------
@@ -39,10 +43,10 @@ def flatten_array(array: list[Union[int, list]]) -> list[int]:
         list flatten in 1D
 
     """
-    result: list = []
-    if not type(array) is list:
-        raise ValueError("Array argumnet must be a list")
-        
-    get_flatten_array(array, result)
-    
-    return result
+  result: list = []
+  if not type(array) is list:
+    raise ValueError("Array argumnet must be a list")
+
+  get_flatten_array(array, result)
+
+  return result
